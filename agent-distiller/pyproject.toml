@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-distiller"
+version = "0.1.0"
+description = "Compress multi-agent pipelines into single fine-tuned models"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Daniel López Orta", email = "daniellopezorta39@gmail.com" }]
+keywords = [
+    "agent", "distillation", "fine-tuning", "multi-agent", "compression",
+    "llm", "knowledge-distillation", "cost-optimization",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "click>=8.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+all = ["openai>=1.0", "tiktoken>=0.7.0"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.4", "mypy>=1.10"]
+
+[project.scripts]
+agent-distill = "agent_distiller.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/daniellopez882/agent-distiller"
+Repository = "https://github.com/daniellopez882/agent-distiller"
+Issues = "https://github.com/daniellopez882/agent-distiller/issues"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

@@ -1,0 +1,30 @@
+# Full distillation config for a research pipeline
+# Usage: agent-distill run --config configs/distill-research.yaml
+
+pipeline:
+  module: my_pipeline
+  class: ResearchPipeline
+
+collect:
+  tasks_file: tasks.jsonl
+  output: traces.jsonl
+  max_tasks: 200
+  min_quality: 7
+  max_cost_per_run: 0.50
+  parallel: 4
+  judge_model: gpt-4o-mini
+
+train:
+  base_model: gpt-4o-mini
+  system_prompt: >
+    You are an expert research analyst. Given a topic, produce a thorough,
+    well-structured research report with key findings, trends, risks,
+    opportunities, and actionable recommendations.
+  epochs: 3
+  validation_split: 0.1
+
+evaluate:
+  test_tasks: test_tasks.jsonl
+  num_tasks: 20
+  judge_model: gpt-4o
+  min_quality_retention: 0.90

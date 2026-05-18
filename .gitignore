@@ -1,0 +1,25 @@
+﻿# Editor / AI tooling (never publish)
+.cursor/
+.cursorrules
+.cursorignore
+.cursorindexingignore
+*.mdc
+.cursormemory
+*.cursormemory
+AGENTS.md
+
+# Secrets and dependencies
+.env
+.env.*
+!.env.example
+*.pem
+node_modules/
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+dist/
+build/
+*.egg-info/
+.DS_Store
+Thumbs.db
