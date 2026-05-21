@@ -184,6 +184,10 @@ We welcome contributions from the community. Please see our [CONTRIBUTING.md](CO
 
 ---
 
+---
+
+---
+
 ## Author & Contact
 
 - **GitHub:** [@rouviour-german](https://github.com/rouviour-german)
